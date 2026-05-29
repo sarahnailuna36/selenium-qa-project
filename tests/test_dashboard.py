@@ -33,8 +33,10 @@ class TestDashboard:
 
         # Step 3: Logout
         dashboard.logout()
-
-        # Step 4: Verifikasi kembali ke /login
+        # Step 4: Tunggu URL berpindah ke /login
+        from selenium.webdriver.support.ui import WebDriverWait
+        from selenium.webdriver.support import expected_conditions as EC
+        WebDriverWait(driver, 10).until(EC.url_contains("login"))
         assert "login" in driver.current_url, \
             "Setelah logout, URL harus kembali ke /login"
 
