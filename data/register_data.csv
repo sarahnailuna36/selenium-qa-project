@@ -1,0 +1,9 @@
+username,password,expected,description
+testuser01,Test@1234,PASS,Register valid
+,Test@1234,FAIL,Username kosong
+testuser02,,FAIL,Password kosong
+ab,Test@1234,FAIL,Username terlalu pendek
+testuser03,123,FAIL,Password terlalu pendek
+testuser01,Test@1234,FAIL,Username sudah terdaftar
+testuser04,test1234,FAIL,Password tanpa huruf besar
+testuser05,TEST@1234,FAIL,Password tanpa angka
