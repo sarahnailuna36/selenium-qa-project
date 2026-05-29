@@ -19,7 +19,15 @@ class DashboardPage(BasePage):
 
     # ── Assertion Helpers ─────────────────────────────
     def is_on_dashboard(self):
-        return "secure" in self.get_current_url()
+        from selenium.webdriver.support.ui import WebDriverWait
+        from selenium.webdriver.support import expected_conditions as EC
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.url_contains("secure")
+                )
+            return True
+        except:
+            return False
 
     def get_heading(self):
         """Ambil teks heading halaman (harusnya 'Secure Area')."""
