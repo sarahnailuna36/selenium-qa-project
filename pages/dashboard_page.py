@@ -19,10 +19,6 @@ class DashboardPage(BasePage):
 
     # ── Assertion Helpers ─────────────────────────────
     def is_on_dashboard(self):
-        """
-        Cek apakah user sedang di halaman dashboard/secure.
-        Cukup cek URL saja karena flash message bisa hilang.
-        """
         return "secure" in self.get_current_url()
 
     def get_heading(self):
